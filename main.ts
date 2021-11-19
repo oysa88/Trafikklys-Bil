@@ -6,12 +6,14 @@ input.onButtonPressed(Button.A, function () {
     basic.showString("A")
     basic.pause(500)
     basic.clearScreen()
+    bitbot.setLedColor(0xFF0000)
 })
 input.onButtonPressed(Button.B, function () {
     Program = 2
     basic.showString("B")
     basic.pause(500)
     basic.clearScreen()
+    bitbot.setLedColor(0x0000FF)
 })
 function BitBit_bil () {
     if (Kjør) {
@@ -31,13 +33,11 @@ function BitBit_bil () {
 }
 function Program_bil () {
     if (Program == 1) {
-        bitbot.setLedColor(0xFF0000)
         if (RadioTallMottatt == 1 && radio.receivedPacket(RadioPacketProperty.SignalStrength) > -44.2) {
             Kjør = true
             grønnStart = input.runningTime()
         }
     } else if (Program == 2) {
-        bitbot.setLedColor(0x0000FF)
         if (RadioTallMottatt == 0 && radio.receivedPacket(RadioPacketProperty.SignalStrength) > -44.2) {
             Kjør = false
         } else {
